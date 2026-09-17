@@ -1,0 +1,358 @@
+@import 'variables';
+
+// Osnovni reset i font
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $main-font;
+  color: $color-dark-blue;
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ----------------------------------------------------
+// NAVIGACIJA (HEADER)
+// ----------------------------------------------------
+header {
+  background-color: $color-bg-light;
+
+  nav {
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      list-style: none;
+      padding: 10px 0;
+
+      li {
+        a {
+          color: $color-dark-blue;
+          font-weight: bold;
+          padding: 8px 16px;
+          transition: color 0.3s ease, background-color 0.3s ease;
+
+          &:hover {
+            color: $color-gold-brown; // Hover efekat za linkove
+          }
+        }
+
+        &.nav-image {
+          img {
+            height: 40px;
+            display: block;
+          }
+        }
+      }
+
+      // Sakrivanje "Više" na velikim ekranima
+      .nav-more {
+        display: none;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.03); // Efekat prelaska preko navigacije na manjim ekranima
+    }
+  }
+}
+
+// ----------------------------------------------------
+// MAIN SEKCIJA (POZADINSKA SLIKA I SEKCIJE)
+// ----------------------------------------------------
+main {
+  // Postavljanje zadate pozadinske slike
+  background-image: url('https://i.ibb.co/Z6HPGPj0/road-without-car.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 0;
+
+  // 1. PRODAJNE LOKACIJE
+  .sellers {
+    padding: 20px;
+
+    h1 {
+      text-align: center;
+      color: $color-dark-blue;
+      margin-bottom: 20px;
+    }
+
+    .locations {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      div {
+        background-color: $color-bg-trans-white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        color: $color-gold-brown;
+        border: 1px solid transparent;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+
+        h2 {
+          font-size: 1.1rem;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-size: 0.9rem;
+          span {
+            font-weight: bold;
+          }
+        }
+
+        // Hover efekat preko prodajnih lokacija
+        &:hover {
+          transform: translateY(-5px);
+          border-color: $color-gold-brown;
+        }
+      }
+    }
+  }
+
+  // 2. CENE AUTA (KALKULATOR I OSTALE PONUDE)
+  .cars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+
+    form {
+      background-color: $color-bg-light;
+      border: 2px solid $color-dark-blue;
+      border-radius: 8px;
+      padding: 20px;
+      width: 90%;
+      max-width: 900px;
+
+      .dream-car {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+
+        img {
+          width: 180px;
+          height: auto;
+        }
+
+        .description {
+          h4 {
+            font-size: 1.3rem;
+            color: $color-dark-blue;
+          }
+          p {
+            color: $color-gold-brown;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .calculator {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 15px;
+
+        div {
+          width: 45%; // Dva unosa u redu
+          display: flex;
+          flex-direction: column;
+
+          label {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+          }
+
+          input, select {
+            padding: 8px;
+            border: 1px solid $color-dark-blue;
+            border-radius: 4px;
+          }
+
+          &.car-color {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+
+            input[type="radio"] {
+              margin-left: 5px;
+            }
+          }
+
+          // Stilovi za dugmad za slanje i resetovanje
+          input[type="submit"], input[type="reset"] {
+            background-color: $color-dark-blue;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: $color-gold-brown;
+            }
+          }
+        }
+      }
+    }
+
+    .offers {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-end;
+      width: 90%;
+      max-width: 1000px;
+
+      div {
+        text-align: center;
+        width: 18%;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        p {
+          background-color: $color-bg-light;
+          color: $color-dark-blue;
+          font-size: 0.85rem;
+          font-weight: bold;
+          padding: 5px;
+          margin-top: 5px;
+          border-radius: 4px;
+        }
+
+        // Treći element je širi u odnosu na ostale
+        &:nth-child(3) {
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// PODNOŽJE (FOOTER)
+// ----------------------------------------------------
+footer {
+  background-color: $color-dark-blue;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  a {
+    color: #ffffff;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-gold-brown;
+    }
+
+    // Peti link zauzima veći prostor i poravnat je desno
+    &:last-child {
+      flex-grow: 1;
+      text-align: right;
+    }
+  }
+}
+
+// ----------------------------------------------------
+// RESPONZIVNOST (MEDIA QUERIES)
+// ----------------------------------------------------
+
+// Srednji ekran (max-width: 992px)
+@media screen and (max-width: 992px) {
+  header {
+    nav {
+      ul {
+        .nav-more {
+          display: inline-block;
+        }
+        .nav-hide {
+          display: none;
+        }
+      }
+    }
+  }
+
+  main {
+    .cars {
+      form {
+        .calculator {
+          div {
+            width: 100%; // Forma u jednoj koloni na manjim ekranima
+          }
+        }
+      }
+
+      .offers {
+        flex-wrap: wrap;
+        gap: 15px;
+
+        div {
+          width: 45%;
+          &:nth-child(3) {
+            width: 45%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mali ekran (max-width: 576px)
+@media screen and (max-width: 576px) {
+  header {
+    nav {
+      ul {
+        li {
+          display: none; // Sakriva sve opcije
+
+          &.nav-image {
+            display: block; // Prikazuje samo Logo
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    .sellers {
+      .locations {
+        flex-direction: column;
+      }
+    }
+
+    .cars {
+      .offers {
+        div, div:nth-child(3) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 10px;
+
+    a:last-child {
+      text-align: center;
+    }
+  }
+}
