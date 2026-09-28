@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as *;
 
 * {
   box-sizing: border-box;
@@ -7,9 +7,9 @@
 }
 
 body {
-  font-family: $font-main;
+  font-family: $font-family;
   color: $dark-blue;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 /* ==========================================
@@ -24,7 +24,7 @@ header {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      padding: 12px 0;
+      padding: 15px 0;
 
       li {
         a {
@@ -35,17 +35,17 @@ header {
           transition: color 0.3s ease;
 
           &:hover {
-            color: $gold-brown; // Hover efekat na linkovima
+            color: $gold-brown; // Hover efekat za linkove
           }
         }
 
         &.nav-image img {
-          height: 35px;
+          height: 38px;
           display: block;
         }
 
         &.nav-more {
-          display: none; // Sakriveno na velikim ekranima
+          display: none; // Sakriveno na velikom ekranu
         }
       }
     }
@@ -54,37 +54,35 @@ header {
 
 /* ==========================================
    PRODAJNE LOKACIJE (SELLERS)
+   - Ovde ide pozadinska slika puta!
    ========================================== */
 .sellers {
   background-image: url('https://i.ibb.co/Z6HPGPj0/road-without-car.jpg');
   background-size: cover;
   background-position: center;
-  padding: 40px 30px 60px 30px;
+  padding: 40px 60px 80px 60px;
 
   h1 {
     color: $dark-blue;
-    margin-bottom: 25px;
     font-size: 1.8rem;
+    margin-bottom: 25px;
   }
 
   .locations {
     display: flex;
-    justify-content: space-evenly;
-    gap: 15px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
 
     div {
       background-color: $trans-gray;
-      padding: 20px;
       border-radius: 12px;
-      width: 22%;
-      min-width: 200px;
+      padding: 20px 15px;
+      flex: 1;
       transition: transform 0.3s ease, background-color 0.3s ease;
 
-      // Hover efekat za lokacije
       &:hover {
         transform: translateY(-5px);
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.9); // Hover na lokacijama
       }
 
       h2 {
@@ -108,29 +106,32 @@ header {
 
 /* ==========================================
    SEKCIJA SA AUTOMOBILIMA I PONUDAMA (CARS)
+   - Bela pozadinska sekcija ispod puta
    ========================================== */
 .cars {
   display: flex;
   justify-content: space-between;
-  padding: 40px 30px;
-  gap: 25px;
+  align-items: flex-start;
+  padding: 40px 60px;
+  gap: 30px;
+  background-color: #ffffff;
 
-  // KALKULATOR FORMA
+  // KALKULATOR FORMA (Leva kolona)
   form {
     width: 58%;
     background-color: $light-blue;
-    border: 2px solid $dark-blue;
-    border-radius: 15px;
-    padding: 25px;
+    border: 1px solid $dark-blue;
+    border-radius: 16px;
+    padding: 30px;
 
     .dream-car {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-evenly;
       margin-bottom: 30px;
 
       img {
-        max-width: 55%;
+        max-width: 50%;
         height: auto;
       }
 
@@ -138,14 +139,14 @@ header {
         text-align: center;
 
         h4 {
-          font-size: 1.4rem;
+          font-size: 1.5rem;
           color: $dark-blue;
           margin-bottom: 15px;
           line-height: 1.2;
         }
 
         p {
-          font-size: 1.5rem;
+          font-size: 1.6rem;
           font-weight: bold;
           color: $dark-blue;
         }
@@ -156,53 +157,87 @@ header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 15px;
+      gap: 18px 0;
 
       div {
-        width: 45%;
+        width: 47%;
         display: flex;
         flex-direction: column;
 
         label {
-          font-size: 0.8rem;
+          font-size: 0.85rem;
           font-weight: bold;
-          margin-bottom: 5px;
+          margin-bottom: 6px;
+          color: $dark-blue;
         }
 
-        input[type="email"],
-        select {
+        select,
+        input[type="email"] {
           padding: 8px 12px;
           border: 1px solid $dark-blue;
           border-radius: 12px;
+          background-color: #ffffff;
           outline: none;
-          background-color: #fff;
+          font-size: 0.9rem;
         }
 
         input[type="color"] {
-          height: 35px;
+          width: 100%;
+          height: 36px;
           border: 1px solid $dark-blue;
           border-radius: 10px;
           cursor: pointer;
-          width: 100%;
+          background-color: transparent;
         }
 
-        &.car-color {
+        // Stil za opseg cene (slider sa ciframa levo i desno)
+        &:nth-child(5) {
+          display: flex;
           flex-direction: row;
-          align-items: center;
-          gap: 8px;
           flex-wrap: wrap;
+          align-items: center;
+          gap: 6px;
 
           label {
+            width: 100%;
+          }
+
+          span {
+            font-size: 0.8rem;
+            font-weight: bold;
+          }
+
+          input[type="range"] {
+            flex: 1;
+            cursor: pointer;
+          }
+        }
+
+        // Tip boje automobila (radio dugmad)
+        &.car-color {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 8px;
+
+          label:first-child {
+            width: 100%;
+          }
+
+          label {
+            font-size: 0.8rem;
             margin-bottom: 0;
           }
         }
 
+        // Submit i Reset dugmad
         input[type="submit"],
         input[type="reset"] {
           padding: 10px;
           border: 1px solid $dark-blue;
-          border-radius: 12px;
-          background-color: #fff;
+          border-radius: 15px;
+          background-color: #ffffff;
           color: $dark-blue;
           font-weight: bold;
           cursor: pointer;
@@ -210,14 +245,14 @@ header {
 
           &:hover {
             background-color: $dark-blue;
-            color: #fff;
+            color: #ffffff;
           }
         }
       }
     }
   }
 
-  // OSTALE PONUDE
+  // OSTALE PONUDE (Desna kolona)
   .offers {
     width: 38%;
     display: flex;
@@ -228,27 +263,27 @@ header {
     div {
       background-color: $light-blue;
       border: 1px solid $dark-blue;
-      border-radius: 15px;
+      border-radius: 16px;
       padding: 15px;
-      text-align: center;
-      width: 47%;
+      width: 48%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      text-align: center;
       transition: transform 0.3s ease;
 
       &:hover {
-        transform: scale(1.03); // Hover animacija za ponude
+        transform: scale(1.03); // Hover animacija za kartice auta
       }
 
-      // Treća kartica zauzima punu širinu
+      // Treći auto (plavi sedan) zauzima celu širinu (100%)
       &:nth-child(3) {
         width: 100%;
       }
 
       img {
-        max-width: 90%;
+        max-width: 85%;
         height: auto;
         margin-bottom: 10px;
       }
@@ -256,6 +291,7 @@ header {
       p {
         font-weight: bold;
         font-size: 0.85rem;
+        color: $dark-blue;
       }
     }
   }
@@ -266,23 +302,19 @@ header {
    ========================================== */
 footer {
   background-color: $dark-blue;
-  padding: 18px 30px;
+  padding: 20px 60px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 
   a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.3s ease;
 
     &:hover {
       color: $gold-brown;
-    }
-
-    &:last-child {
-      text-align: right;
     }
   }
 }
@@ -291,24 +323,33 @@ footer {
    RESPONZIVNOST (MEDIA QUERIES)
    ========================================== */
 
-// Srednji ekrani (tablet / manji laptopi)
+// Srednji ekrani (Srednji prikaz sa zadatka)
 @media screen and (max-width: 992px) {
   header nav ul {
     .nav-hide {
-      display: none; // Sakrivaju se nav-hide opcije
+      display: none;
     }
     .nav-more {
-      display: inline-block; // Prikazuje se opcija "Više"
+      display: inline-block;
     }
   }
 
-  .sellers .locations div {
-    width: 46%;
-    margin-bottom: 10px;
+  .sellers {
+    padding: 30px;
+
+    .locations {
+      flex-wrap: wrap;
+
+      div {
+        width: 48%;
+        flex: none;
+      }
+    }
   }
 
   .cars {
     flex-direction: column;
+    padding: 30px;
 
     form,
     .offers {
@@ -317,13 +358,13 @@ footer {
   }
 }
 
-// Mali ekrani (mobilni telefoni)
+// Mali ekrani (Mali prikaz sa zadatka)
 @media screen and (max-width: 600px) {
   header nav ul {
     justify-content: center;
 
     li {
-      display: none; // Sakrivaju se svi linkovi osim loga
+      display: none;
 
       &.nav-image {
         display: block;
@@ -339,13 +380,13 @@ footer {
     width: 100%;
   }
 
+  .cars .offers div {
+    width: 100%;
+  }
+
   footer {
     flex-direction: column;
     gap: 12px;
     text-align: center;
-
-    a:last-child {
-      text-align: center;
-    }
   }
 }

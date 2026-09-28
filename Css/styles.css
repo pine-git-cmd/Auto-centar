@@ -10,244 +10,315 @@ body {
   background-color: #ffffff;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
+/* ==========================================
+   NAVIGACIJA / HEADER
+   ========================================== */
 header {
   background-color: #dde0e9;
 }
 header nav ul {
+  list-style: none;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  list-style: none;
-  padding: 10px 0;
+  padding: 15px 0;
 }
 header nav ul li a {
+  text-decoration: none;
   color: #003153;
   font-weight: bold;
-  padding: 8px 16px;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
 }
 header nav ul li a:hover {
   color: #b96d34;
 }
 header nav ul li.nav-image img {
-  height: 40px;
+  height: 38px;
   display: block;
 }
-header nav ul .nav-more {
+header nav ul li.nav-more {
   display: none;
 }
-header nav:hover {
-  background-color: rgba(0, 0, 0, 0.03);
-}
 
-main {
+/* ==========================================
+   PRODAJNE LOKACIJE (SELLERS)
+   - Ovde ide pozadinska slika puta!
+   ========================================== */
+.sellers {
   background-image: url("https://i.ibb.co/Z6HPGPj0/road-without-car.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  padding: 20px 0;
+  padding: 40px 60px 80px 60px;
 }
-main .sellers {
-  padding: 20px;
-}
-main .sellers h1 {
-  text-align: center;
+.sellers h1 {
   color: #003153;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
 }
-main .sellers .locations {
+.sellers .locations {
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 15px;
+  justify-content: space-between;
+  gap: 20px;
 }
-main .sellers .locations div {
+.sellers .locations div {
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 15px 20px;
-  border-radius: 5px;
-  color: #b96d34;
-  border: 1px solid transparent;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  border-radius: 12px;
+  padding: 20px 15px;
+  flex: 1;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
-main .sellers .locations div h2 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
+.sellers .locations div:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.9);
 }
-main .sellers .locations div p {
-  font-size: 0.9rem;
+.sellers .locations div h2 {
+  font-size: 1.15rem;
+  color: #003153;
+  margin-bottom: 12px;
 }
-main .sellers .locations div p span {
+.sellers .locations div p {
+  font-size: 0.85rem;
   font-weight: bold;
 }
-main .sellers .locations div:hover {
-  transform: translateY(-5px);
-  border-color: #b96d34;
+.sellers .locations div p span {
+  color: #b96d34;
+  font-weight: normal;
 }
-main .cars {
+
+/* ==========================================
+   SEKCIJA SA AUTOMOBILIMA I PONUDAMA (CARS)
+   - Bela pozadinska sekcija ispod puta
+   ========================================== */
+.cars {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 60px;
   gap: 30px;
-  padding: 20px;
+  background-color: #ffffff;
 }
-main .cars form {
+.cars form {
+  width: 58%;
   background-color: #dde0e9;
-  border: 2px solid #003153;
-  border-radius: 8px;
-  padding: 20px;
-  width: 90%;
-  max-width: 900px;
+  border: 1px solid #003153;
+  border-radius: 16px;
+  padding: 30px;
 }
-main .cars form .dream-car {
+.cars form .dream-car {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
 }
-main .cars form .dream-car img {
-  width: 180px;
+.cars form .dream-car img {
+  max-width: 50%;
   height: auto;
 }
-main .cars form .dream-car .description h4 {
-  font-size: 1.3rem;
+.cars form .dream-car .description {
+  text-align: center;
+}
+.cars form .dream-car .description h4 {
+  font-size: 1.5rem;
+  color: #003153;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+.cars form .dream-car .description p {
+  font-size: 1.6rem;
+  font-weight: bold;
   color: #003153;
 }
-main .cars form .dream-car .description p {
-  color: #b96d34;
+.cars form .calculator {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px 0;
+}
+.cars form .calculator div {
+  width: 47%;
+  display: flex;
+  flex-direction: column;
+}
+.cars form .calculator div label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #003153;
+}
+.cars form .calculator div select,
+.cars form .calculator div input[type=email] {
+  padding: 8px 12px;
+  border: 1px solid #003153;
+  border-radius: 12px;
+  background-color: #ffffff;
+  outline: none;
+  font-size: 0.9rem;
+}
+.cars form .calculator div input[type=color] {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #003153;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.cars form .calculator div:nth-child(5) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.cars form .calculator div:nth-child(5) label {
+  width: 100%;
+}
+.cars form .calculator div:nth-child(5) span {
+  font-size: 0.8rem;
   font-weight: bold;
 }
-main .cars form .calculator {
+.cars form .calculator div:nth-child(5) input[type=range] {
+  flex: 1;
+  cursor: pointer;
+}
+.cars form .calculator div.car-color {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.cars form .calculator div.car-color label:first-child {
+  width: 100%;
+}
+.cars form .calculator div.car-color label {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+.cars form .calculator div input[type=submit],
+.cars form .calculator div input[type=reset] {
+  padding: 10px;
+  border: 1px solid #003153;
+  border-radius: 15px;
+  background-color: #ffffff;
+  color: #003153;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.cars form .calculator div input[type=submit]:hover,
+.cars form .calculator div input[type=reset]:hover {
+  background-color: #003153;
+  color: #ffffff;
+}
+.cars .offers {
+  width: 38%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 15px;
 }
-main .cars form .calculator div {
-  width: 45%;
+.cars .offers div {
+  background-color: #dde0e9;
+  border: 1px solid #003153;
+  border-radius: 16px;
+  padding: 15px;
+  width: 48%;
   display: flex;
   flex-direction: column;
-}
-main .cars form .calculator div label {
-  margin-bottom: 5px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-main .cars form .calculator div input, main .cars form .calculator div select {
-  padding: 8px;
-  border: 1px solid #003153;
-  border-radius: 4px;
-}
-main .cars form .calculator div.car-color {
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-}
-main .cars form .calculator div.car-color input[type=radio] {
-  margin-left: 5px;
-}
-main .cars form .calculator div input[type=submit], main .cars form .calculator div input[type=reset] {
-  background-color: #003153;
-  color: #ffffff;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s;
-}
-main .cars form .calculator div input[type=submit]:hover, main .cars form .calculator div input[type=reset]:hover {
-  background-color: #b96d34;
-}
-main .cars .offers {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  width: 90%;
-  max-width: 1000px;
-}
-main .cars .offers div {
   text-align: center;
-  width: 18%;
+  transition: transform 0.3s ease;
 }
-main .cars .offers div img {
+.cars .offers div:hover {
+  transform: scale(1.03);
+}
+.cars .offers div:nth-child(3) {
   width: 100%;
+}
+.cars .offers div img {
+  max-width: 85%;
   height: auto;
+  margin-bottom: 10px;
 }
-main .cars .offers div p {
-  background-color: #dde0e9;
-  color: #003153;
-  font-size: 0.85rem;
+.cars .offers div p {
   font-weight: bold;
-  padding: 5px;
-  margin-top: 5px;
-  border-radius: 4px;
-}
-main .cars .offers div:nth-child(3) {
-  width: 25%;
+  font-size: 0.85rem;
+  color: #003153;
 }
 
+/* ==========================================
+   FOOTER
+   ========================================== */
 footer {
   background-color: #003153;
-  padding: 15px 20px;
+  padding: 20px 60px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 footer a {
   color: #ffffff;
+  text-decoration: none;
   font-size: 0.85rem;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 footer a:hover {
   color: #b96d34;
 }
-footer a:last-child {
-  flex-grow: 1;
-  text-align: right;
-}
 
+/* ==========================================
+   RESPONZIVNOST (MEDIA QUERIES)
+   ========================================== */
 @media screen and (max-width: 992px) {
-  header nav ul .nav-more {
-    display: inline-block;
-  }
   header nav ul .nav-hide {
     display: none;
   }
-  main .cars form .calculator div {
+  header nav ul .nav-more {
+    display: inline-block;
+  }
+  .sellers {
+    padding: 30px;
+  }
+  .sellers .locations {
+    flex-wrap: wrap;
+  }
+  .sellers .locations div {
+    width: 48%;
+    flex: none;
+  }
+  .cars {
+    flex-direction: column;
+    padding: 30px;
+  }
+  .cars form,
+  .cars .offers {
     width: 100%;
   }
-  main .cars .offers {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  main .cars .offers div {
-    width: 45%;
-  }
-  main .cars .offers div:nth-child(3) {
-    width: 45%;
-  }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 600px) {
+  header nav ul {
+    justify-content: center;
+  }
   header nav ul li {
     display: none;
   }
   header nav ul li.nav-image {
     display: block;
   }
-  main .sellers .locations {
-    flex-direction: column;
+  .sellers .locations div {
+    width: 100%;
   }
-  main .cars .offers div, main .cars .offers div:nth-child(3) {
+  .cars form .calculator div {
+    width: 100%;
+  }
+  .cars .offers div {
     width: 100%;
   }
   footer {
     flex-direction: column;
-    gap: 10px;
-  }
-  footer a:last-child {
+    gap: 12px;
     text-align: center;
   }
 }
