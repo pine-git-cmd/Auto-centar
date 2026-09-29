@@ -10,9 +10,6 @@ body {
   background-color: #ffffff;
 }
 
-/* ==========================================
-   NAVIGACIJA / HEADER
-   ========================================== */
 header {
   background-color: #dde0e9;
 }
@@ -33,18 +30,18 @@ header nav ul li a {
 header nav ul li a:hover {
   color: #b96d34;
 }
-header nav ul li.nav-image img {
+header nav ul li.nav-image a img {
   height: 38px;
   display: block;
+  transition: transform 0.3s ease;
+}
+header nav ul li.nav-image a img:hover {
+  transform: scale(1.15);
 }
 header nav ul li.nav-more {
   display: none;
 }
 
-/* ==========================================
-   PRODAJNE LOKACIJE (SELLERS)
-   - Ovde ide pozadinska slika puta!
-   ========================================== */
 .sellers {
   background-image: url("https://i.ibb.co/Z6HPGPj0/road-without-car.jpg");
   background-size: cover;
@@ -86,10 +83,6 @@ header nav ul li.nav-more {
   font-weight: normal;
 }
 
-/* ==========================================
-   SEKCIJA SA AUTOMOBILIMA I PONUDAMA (CARS)
-   - Bela pozadinska sekcija ispod puta
-   ========================================== */
 .cars {
   display: flex;
   justify-content: space-between;
@@ -248,9 +241,6 @@ header nav ul li.nav-more {
   color: #003153;
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
 footer {
   background-color: #003153;
   padding: 20px 60px;
@@ -268,9 +258,6 @@ footer a:hover {
   color: #b96d34;
 }
 
-/* ==========================================
-   RESPONZIVNOST (MEDIA QUERIES)
-   ========================================== */
 @media screen and (max-width: 992px) {
   header nav ul .nav-hide {
     display: none;

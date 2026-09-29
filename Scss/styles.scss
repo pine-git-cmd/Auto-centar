@@ -12,9 +12,7 @@ body {
   background-color: #ffffff;
 }
 
-/* ==========================================
-   NAVIGACIJA / HEADER
-   ========================================== */
+
 header {
   background-color: $light-blue;
 
@@ -35,27 +33,31 @@ header {
           transition: color 0.3s ease;
 
           &:hover {
-            color: $gold-brown; // Hover efekat za linkove
+            color: $gold-brown; 
           }
         }
 
-        &.nav-image img {
-          height: 38px;
-          display: block;
-        }
+        &.nav-image {
+  a img {
+    height: 38px;
+    display: block;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.15); // popravljen hover
+    }
+  }
+}
 
         &.nav-more {
-          display: none; // Sakriveno na velikom ekranu
+          display: none; 
         }
       }
     }
   }
 }
 
-/* ==========================================
-   PRODAJNE LOKACIJE (SELLERS)
-   - Ovde ide pozadinska slika puta!
-   ========================================== */
+
 .sellers {
   background-image: url('https://i.ibb.co/Z6HPGPj0/road-without-car.jpg');
   background-size: cover;
@@ -104,10 +106,7 @@ header {
   }
 }
 
-/* ==========================================
-   SEKCIJA SA AUTOMOBILIMA I PONUDAMA (CARS)
-   - Bela pozadinska sekcija ispod puta
-   ========================================== */
+
 .cars {
   display: flex;
   justify-content: space-between;
@@ -190,7 +189,7 @@ header {
           background-color: transparent;
         }
 
-        // Stil za opseg cene (slider sa ciframa levo i desno)
+        
         &:nth-child(5) {
           display: flex;
           flex-direction: row;
@@ -213,7 +212,7 @@ header {
           }
         }
 
-        // Tip boje automobila (radio dugmad)
+        
         &.car-color {
           display: flex;
           flex-direction: row;
@@ -297,9 +296,7 @@ header {
   }
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
+
 footer {
   background-color: $dark-blue;
   padding: 20px 60px;
@@ -319,11 +316,8 @@ footer {
   }
 }
 
-/* ==========================================
-   RESPONZIVNOST (MEDIA QUERIES)
-   ========================================== */
 
-// Srednji ekrani (Srednji prikaz sa zadatka)
+
 @media screen and (max-width: 992px) {
   header nav ul {
     .nav-hide {
